@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+  psql-db:
+    hostname: postgres-db
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: 'password'
+    ports:
+      - '1234:5432'
+    volumes:
+      - my-db:/var/lib/postgresql
+#  application:
+#    image: parvin02/ms14:v1
+#    depends_on:
+#      - psql-db
+#    environment:
+#      DB_HOSTNAME: postgres-db
+#      DB_PORT: 5432
+#    ports:
+#      - '9090:8080'
+volumes:
+  my-db:

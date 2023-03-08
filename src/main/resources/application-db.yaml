@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOSTNAME:localhost}:${DB_PORT:1234}/postgres
+    username: ${DB_CONNECTION_USERNAME:postgres}
+    password: ${DB_CONNECTION_PASSWORD:password}
+  jpa:
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: update
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db-changelog-master.yaml
+#    database-change-log-table: STUDY_MS_DB_CHANGELOG
+#    database-change-log-lock-table: STUDY_MS_DB_CHANGE_LOG_LOCK
