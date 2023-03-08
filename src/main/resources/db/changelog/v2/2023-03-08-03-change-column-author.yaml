@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2023-03-08-03
+      author: parvin
+      description: change column author
+      changes:
+        - renameColumn:
+            tableName: author
+            newColumnName: fullname
+            oldColumnName: name

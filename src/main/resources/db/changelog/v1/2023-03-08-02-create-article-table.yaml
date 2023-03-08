@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2023-03-08-02
+      author: parvin
+      description: create article table
+      changes:
+        - createTable:
+            tableName: article
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: article_pk
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: text
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: author_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: author_fk

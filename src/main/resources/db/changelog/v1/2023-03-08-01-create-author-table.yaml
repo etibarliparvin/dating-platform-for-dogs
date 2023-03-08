@@ -2,20 +2,22 @@ databaseChangeLog:
   - changeSet:
       id: 2023-03-08-01
       author: parvin
-      description: create post table
+      description: create author table
       changes:
         - createTable:
-            tableName: post
+            tableName: author
             columns:
               - column:
+                  name: id
+                  type: BIGINT
                   autoIncrement: true
                   constraints:
                     nullable: false
                     primaryKey: true
-                    primaryKeyName: post_pkey
-                  name: id
-                  type: BIGINT
+                    primaryKeyName: author_pk
               - column:
-                  name: title
+                  name: name
                   type: VARCHAR(255)
+                  constraints:
+                    nullable: false
 
