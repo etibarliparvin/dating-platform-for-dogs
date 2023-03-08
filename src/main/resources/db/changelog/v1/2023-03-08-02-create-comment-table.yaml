@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2023-03-08-02
+      author: parvin
+      description: create comment table
+      changes:
+        - createTable:
+            tableName: comment
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: comment_pk
+              - column:
+                  name: text
+                  type: varchar
+                  constraints:
+                    nullable: true
+              - column:
+                  name: post_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseColumnNames: post_id
+            baseTableName: comment
+            constraintName: post_comment_fk
+            referencedColumnNames: id
+            referencedTableName: post

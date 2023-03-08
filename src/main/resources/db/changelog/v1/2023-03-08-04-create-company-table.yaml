@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2023-03-08-04
+      author: parvin
+      description: create company table
+      changes:
+        - createTable:
+            tableName: company
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: company_pk
+              - column:
+                  name: name
+                  type: varchar
+                  constraints:
+                    nullable: false

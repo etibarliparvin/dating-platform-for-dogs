@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2023-03-08-05
+      author: parvin
+      description: create company worker table
+      changes:
+        - createTable:
+            tableName: company_worker
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: company_worker_pk
+              - column:
+                  name: company_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: worker_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseColumnNames: company_id
+            baseTableName: company_worker
+            constraintName: company_worker_company_fk
+            referencedColumnNames: id
+            referencedTableName: company
+        - addForeignKeyConstraint:
+            baseColumnNames: worker_id
+            baseTableName: company_worker
+            constraintName: company_worker_worker_fk
+            referencedColumnNames: id
+            referencedTableName: worker

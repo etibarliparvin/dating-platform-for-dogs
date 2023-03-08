@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2023-03-08-03
+      author: parvin
+      description: create worker table
+      changes:
+        - createTable:
+            tableName: worker
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: worker_pk
+              - column:
+                  name: name
+                  type: varchar
+                  constraints:
+                    nullable: false
+              - column:
+                  name: surname
+                  type: varchar
+                  constraints:
+                    nullable: false

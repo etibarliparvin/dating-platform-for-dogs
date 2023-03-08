@@ -8,14 +8,15 @@ databaseChangeLog:
             tableName: post
             columns:
               - column:
+                  name: id
+                  type: BIGINT
                   autoIncrement: true
                   constraints:
                     nullable: false
                     primaryKey: true
-                    primaryKeyName: post_pkey
-                  name: id
-                  type: BIGINT
+                    primaryKeyName: post_pk
               - column:
-                  name: title
-                  type: VARCHAR(255)
-
+                  name: text
+                  type: varchar
+                  constraints:
+                    nullable: false
