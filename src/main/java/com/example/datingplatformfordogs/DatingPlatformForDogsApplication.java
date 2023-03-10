@@ -1,9 +1,12 @@
 package com.example.datingplatformfordogs;
 
+import com.example.datingplatformfordogs.domain.Worker;
 import com.example.datingplatformfordogs.repository.CommentRepository;
 import com.example.datingplatformfordogs.repository.PostRepository;
 import com.example.datingplatformfordogs.repository.WorkerRepository;
+import com.example.datingplatformfordogs.tuple.WorkerCompanyDto;
 import com.example.datingplatformfordogs.tuple.WorkerDto;
+import com.example.datingplatformfordogs.tuple.WorkerRecordDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -37,8 +40,14 @@ public class DatingPlatformForDogsApplication implements CommandLineRunner {
 //        List<WorkerName> dtos = workerRepository.findWorkersNameById(1L);
 //        dtos.forEach(a -> System.out.println(a.getName()));
 
-        List<WorkerDto> list =
-                workerRepository.findWorkerNameAndCompanyNameByCompanyId(1L);
-        System.out.println(list);
+//        List<WorkerDto> list =
+//                workerRepository.findWorkerNameAndCompanyNameByCompanyId(1L);
+//        System.out.println(list);
+
+//        List<WorkerCompanyDto> dtos = workerRepository.findWorkersNameById3(1L);
+//        System.out.println(dtos);
+
+        Worker worker = workerRepository.foo(1L).get();
+        System.out.println(worker);
     }
 }
